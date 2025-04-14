@@ -1,9 +1,12 @@
 - name: Shell test
   hosts: localhost
+  gather_facts: false
   tasks:
-    - name: Show EE info
+    - name: Show EE collection list
       command: "ansible-galaxy collection list"
       register: result
 
-    - debug:
+    - name: Display collection list
+      debug:
         var: result.stdout_lines
+
