@@ -10,3 +10,8 @@
       debug:
         var: result.stdout_lines
 
+    - name: Show collection path
+      debug:
+        var: lookup('env', 'ANSIBLE_COLLECTIONS_PATH')
+
+
