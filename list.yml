@@ -1,0 +1,9 @@
+- name: Shell test
+  hosts: localhost
+  tasks:
+    - name: Show EE info
+      command: "ansible-galaxy collection list"
+      register: result
+
+    - debug:
+        var: result.stdout_lines
