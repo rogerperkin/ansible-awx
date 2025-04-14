@@ -11,18 +11,18 @@
 
   tasks:
     - name: Configure hostname
-      juniper_junos_config:
+      junipernetworks.junos.junos:
         lines:
           - "set system host-name {{ hostname }}"
 
     - name: Configure interface ge-0/0/0
-      juniper_junos_config:
+      junipernetworks.junos.junos:
         lines:
           - "set interfaces ge-0/0/0 unit 0 family inet address {{ interface_ip }}/24"
           - "set interfaces ge-0/0/0 description '{{ interface_description }}'"
 
     - name: Commit configuration
-      juniper_junos_config:
+      junipernetworks.junos.junos:
         confirm_commit: false
         commit: true
         debug: 
