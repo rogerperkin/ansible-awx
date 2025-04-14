@@ -1,0 +1,16 @@
+---
+- name: Connectivity test to Junos device
+  hosts: junos
+  gather_facts: no
+  connection: netconf
+
+  tasks:
+    - name: Run 'show version' to verify connectivity
+      junipernetworks.junos.junos_command:
+        commands:
+          - show version
+      register: show_version_output
+
+    - name: Display output
+      debug:
+        var: show_version_output
