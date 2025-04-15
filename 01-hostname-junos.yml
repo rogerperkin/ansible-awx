@@ -15,6 +15,10 @@
         lines:
           - "set system host-name {{ hostname }}"
 
+    - name: Print hostname change message
+      debug:
+        msg: "Hostname has been changed to {{ hostname }}"
+
     - name: Configure interface ge-0/0/0
       junipernetworks.junos.junos_config:
         lines:
