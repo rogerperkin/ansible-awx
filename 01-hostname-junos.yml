@@ -19,7 +19,7 @@
       junipernetworks.junos.junos_config:
         lines:
           - "set interfaces ge-0/0/0 unit 0 family inet address {{ interface_ip }}/24"
-#          - "set interfaces ge-0/0/0 description {{ interface_description }}"
+          - "set interfaces ge-0/0/0 description '{{ interface_description }}'"
         comment: "Configured by Ansible"
         update: merge
         confirm_commit: true
