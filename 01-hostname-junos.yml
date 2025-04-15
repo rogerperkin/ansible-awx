@@ -25,10 +25,10 @@
           - "set interfaces ge-0/0/0 unit 0 family inet address {{ interface_ip }}/24"
           - "set interfaces ge-0/0/0 description '{{ interface_description }}'"
         comment: "Configured by Ansible"
-        update: merge
-        confirm_commit: true
 
     - name: Commit configuration
+      update: merge
+      confirm_commit: true
       debug: 
         msg: "Configuration committed successfully"
       
