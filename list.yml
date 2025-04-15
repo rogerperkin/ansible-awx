@@ -1,6 +1,13 @@
 - name: Shell test
   hosts: localhost
   gather_facts: false
+  vars:
+    ansible_network_os: junos
+    ansible_connection: netconf
+    ansible_user: "{{ router_user | default('admin') }}"
+    ansible_password: "{{ router_pass | default('admin@123') }}"
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
   tasks:
     - name: Show EE collection list
       command: "ansible-galaxy collection list"

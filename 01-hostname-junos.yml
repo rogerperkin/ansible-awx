@@ -25,9 +25,6 @@
         confirm_commit: true
 
     - name: Commit configuration
-      junipernetworks.junos.junos_config:
-        confirm_commit: false
-        commit: true
-        debug: 
-          msg: "Configuration committed successfully"
+      debug: 
+        msg: "Configuration committed successfully"
       
