@@ -9,10 +9,10 @@
         dest: rendered_config.txt
       vars:
         hostname: "{{ hostname}}"
-        interface_name: "{{ interface_name }}"
+        interface_description: "{{ interface_description }}"
         interface_ip: "{{ interface_ip }}"
         subnet_mask: "{{ subnet_mask }}"
-        description: "{{ description }}"
+        enable_password: "{{ enable_password }}"
 
     - name: Show the rendered config in stdout
       ansible.builtin.shell: cat rendered_config.txt
