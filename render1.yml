@@ -5,7 +5,7 @@
   tasks:
     - name: Render the configuration file from Jinja2 template
       template:
-        src: /Users/rperkin/Documents/Code/ansible-awx/templates/cisco.j2
+        src: ./templates/cisco.j2
         dest: rendered_config.txt
       vars:
         hostname: "{{ hostname}}"
