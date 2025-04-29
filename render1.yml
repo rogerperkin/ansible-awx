@@ -5,15 +5,20 @@
   tasks:
     - name: Render the configuration file from Jinja2 template
       template:
-        src: config_template.j2
-        dest: /tmp/rendered_config.txt
+        src: /Users/rperkin/Documents/Code/ansible-awx/templates/cisco.j2
+        dest: rendered_config.txt
       vars:
-        hostname: "{{ hostname }}"
+        hostname: "{{ hostname}}"
         interface_name: "{{ interface_name }}"
-        ip_address: "{{ ip_address }}"
+        interface_ip: "{{ interface_ip }}"
         subnet_mask: "{{ subnet_mask }}"
         description: "{{ description }}"
 
     - name: Show the rendered config in stdout
+      ansible.builtin.shell: cat rendered_config.txt
+      register: config_output
+
+    - name: Print formatted config
       debug:
-        msg: "{{ lookup('file', '/tmp/rendered_config.txt') }}"
+        msg: "{{ config_output.stdout_lines }}"
+

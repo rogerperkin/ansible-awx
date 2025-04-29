@@ -3,7 +3,7 @@
 hostname {{ hostname }}
 
 interface {{ interface_name }}
-  ip address {{ ip_address }} {{ subnet_mask }}
+  ip address {{ interface_ip }} {{ subnet_mask }}
   no shutdown
   description {{ interface_description }}
 

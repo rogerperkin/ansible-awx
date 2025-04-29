@@ -1,0 +1,16 @@
+! Cisco Router Configuration
+
+hostname TestRouter
+
+interface GigabitEthernet0/2
+  ip address 10.0.0.1 255.255.255.0
+  no shutdown
+  description Uplink Test
+
+line vty 0 4
+  login
+  transport input ssh
+
+enable secret lab123
+
+!
