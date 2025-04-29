@@ -9,6 +9,7 @@
         dest: rendered_config.txt
       vars:
         hostname: "{{ hostname}}"
+        interface_name: "{{ interface_name }}"
         interface_description: "{{ interface_description }}"
         interface_ip: "{{ interface_ip }}"
         subnet_mask: "{{ subnet_mask }}"
