@@ -1,0 +1,11 @@
+---
+- name: Playbook using external extra_vars
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - vars/extra_vars.yml
+
+  tasks:
+    - name: Show loaded vars
+      debug:
+        msg: "Environment: {{ env }}, Region: {{ region }}"
