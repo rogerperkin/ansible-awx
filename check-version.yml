@@ -1,15 +1,17 @@
----
-- name: Check Junos version
-  hosts: all 
+- name: Quick test
+  hosts: junos
   gather_facts: no
-  connection: local
-  tasks:
-    - name: Gather facts from the Junos device
-      juniper.junos.junos_facts:
-        gather_subset:
-          - version
-      register: junos_facts
+  connection: ansible.netcommon.netconf
+  vars:
+    ansible_network_os: junos
+    ansible_port: 830
 
-    - name: Output Junos version to the screen
+  tasks:
+    - name: Get software information
+      junipernetworks.junos.junos_rpc:
+        rpc: get-software-information
+      register: output
+
+    - name: Print output
       debug:
-        msg: "Junos version on {{ inventory_hostname }}: {{ junos_facts.ansible_facts.ansible_net_version }}"
+        var: output
