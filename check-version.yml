@@ -1,0 +1,15 @@
+---
+- name: Check Junos version
+  hosts: all 
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Gather facts from the Junos device
+      juniper.junos.junos_facts:
+        gather_subset:
+          - version
+      register: junos_facts
+
+    - name: Output Junos version to the screen
+      debug:
+        msg: "Junos version on {{ inventory_hostname }}: {{ junos_facts.ansible_facts.ansible_net_version }}"a
