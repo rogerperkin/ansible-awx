@@ -12,4 +12,4 @@
 
     - name: Output Junos version to the screen
       debug:
-        msg: "Junos version on {{ inventory_hostname }}: {{ junos_facts.ansible_facts.ansible_net_version }}"a
+        msg: "Junos version on {{ inventory_hostname }}: {{ junos_facts.ansible_facts.ansible_net_version }}"
