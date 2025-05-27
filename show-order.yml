@@ -1,0 +1,19 @@
+---
+- name: Software Upgrade Step for Single Device
+  hosts: localhost
+  gather_facts: false
+  vars:
+    upgrade_device: ""
+
+  tasks:
+    - name: Ensure upgrade_device is provided
+      assert:
+        that:
+          - upgrade_device != ""
+        fail_msg: "'upgrade_device' variable must be provided."
+
+    - name: Print upgrade started message
+      debug:
+        msg: "Upgrade started on device {{ upgrade_device }}"
+
+    # Place your actual upgrade step(s) here
