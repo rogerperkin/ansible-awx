@@ -1,0 +1,6 @@
+- name: Print message on each host
+  hosts: all
+  tasks:
+    - name: Print the current host
+      debug:
+        msg: "This task is running on host {{ inventory_hostname }}"
