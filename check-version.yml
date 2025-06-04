@@ -1,5 +1,5 @@
 - name: Quick test
-  hosts: "{{ target_device }}"
+  hosts: all
   gather_facts: no
   connection: ansible.netcommon.netconf
   vars:
